@@ -1,0 +1,1154 @@
+:root {
+    --primary-color: #ffb355;
+    --bg-color: #121317;    
+    --secondary-color:#d8d8d8;
+    --box-bg:#212024;
+    --hover-bg:#35353a;
+    --secondary-font:"Nunito", sans-serif;
+    --main-font:"Poppins", sans-serif;
+    --primary-font:"Oswald", sans-serif;
+    --light-font:"Nunito", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{background: var(--bg-color);}
+
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid var(--primary-color, #3498db); /* Use primary color or default to #3498db (a shade of blue) */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hide loader when content is loaded */
+body.loaded .loader-wrapper {
+  display: none;
+}
+
+/*  */
+/* Width */
+::-webkit-scrollbar {
+  width: 6px; 
+  /* adjust as needed */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* or any color you prefer */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color); 
+  border-radius: 20px;/* or any color you prefer */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* or any color you prefer */
+}
+
+/* Width */
+.scrollbar-width-supported ::-webkit-scrollbar {
+  width: 12px; /* adjust as needed */
+}
+
+/* Track */
+.scrollbar-width-supported ::-webkit-scrollbar-track {
+  background: #f1f1f1; /* or any color you prefer */
+}
+
+/* Handle */
+.scrollbar-width-supported ::-webkit-scrollbar-thumb {
+  background: #888; /* or any color you prefer */
+}
+
+/* Handle on hover */
+.scrollbar-width-supported ::-webkit-scrollbar-thumb:hover {
+  background: #555; /* or any color you prefer */
+}
+
+
+/*  */
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 6vh;    
+    font-size: 2.5rem;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    font-family: "Oswald", sans-serif;   
+    color: white; 
+}
+
+nav ul, .social-media-links ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    color: #e5e5e5;
+    padding:5px 10px;
+    font-size: 1.2rem;
+    position: relative;
+    text-decoration: none;    
+    transition: 0.2s;
+    font-family: "Nunito", sans-serif;
+}
+
+nav ul li a:hover {
+    transform: scale(0.98);
+    color: white;
+}
+
+nav ul li a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Adjusted position */
+    transform: translateX(-50%); /* Center the pseudo-element */
+    width: 0%;
+    height: 2px;
+    border-radius: 10px;    
+    transition: .2s;
+    background: var(--primary-color);
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+.side-bar {
+    width: 60%;
+    height: 100vh;
+    position: fixed;
+    /* background: var(--primary-color); */
+    backdrop-filter:blur(10px);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5); /* Adjusted shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Adjust alignment if needed */
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: .2s;
+}
+
+.side-bar ul li{
+    list-style: none;
+    padding: 20px 0;   
+    font-family: var(--light-font);
+}
+
+.side-bar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s; /* Specify transition property explicitly */
+}
+
+.side-bar ul li a:hover {
+    transform: scale(1.05);
+}
+
+#close{
+    position: absolute;
+    color: white;
+    right: 3%;
+    top: 10px;
+    display: none;
+}
+
+#menu{
+    color: white;
+    margin-right: 3%;
+    display: none;
+}
+
+.txt-decoration{
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+nav > p{
+    letter-spacing: 2px;
+}
+
+header {
+    height: 100vh;
+    width: 100vw;    
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.bg{
+    position: absolute;
+    z-index: -1;
+    height: 90%;   
+    width: 60%;
+    right: 5%; 
+    opacity: .9;
+    top: 5%;
+}
+
+#header-text-content{
+    text-align: left; /* Align text to the left */
+    margin-left: 10%;
+    padding: 2em;
+    width: 50%;
+}
+
+#header-text-content > p{
+    margin: 20px 0;
+}
+
+#header-text-content > p:first-child {
+    font-size: 8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;  
+    color: white;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-style: normal;
+}
+
+#header-text-content > p:first-child > span:first-child{
+    -webkit-text-stroke:1px white;
+    color: transparent ;
+}
+
+#Body{
+    color: var(--primary-color);
+}
+
+#header-text-content > p:nth-child(2) {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-family: "Nunito", sans-serif;
+    margin-bottom: 20px;
+}
+
+#header-text-content > button, #header-text-content > button a{
+    width: 20%;
+    min-height: 5vh;
+    font-size: 1.8rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    background: var(--primary-color);
+    border: none;
+    font-weight: 500;
+    padding: 5px; 
+    transition: .2s;
+    font-family: "Poppins", sans-serif;
+}
+
+#header-text-content > button:hover{
+    transform: scale(95%);
+}
+
+#services{
+    height: 100vh;
+    width: 100vw;
+}
+
+.services-heading{
+    font-size: 4rem;
+    margin: 5% 0 5% 5%;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+.services-box-area{
+    width: 75vw;
+    height: 30vh;
+    display: flex;
+    margin: auto;
+    grid-gap: 20px;
+}
+
+.box, .plan-box > div{
+    height: 100%;
+    width: 50%;
+    background: var(--box-bg);    
+    border-radius: 20px;
+    transition: .2s;
+    cursor: pointer;
+    padding: 50px 10px 10px 10px;
+    position: relative;
+}
+
+.box:hover,.plan-box > div:hover{
+    transform: scale(105%);
+    background: var(--hover-bg);
+    border: 1px solid var(--primary-color);
+}
+
+.box > span{
+    margin: 5% 0% 5% 5%;
+    background: var(--primary-color);
+    border-radius: 6px;
+    color: white;
+    font-size: 2rem;
+    padding: 10px 10px 0 10px; 
+}
+
+#span-icon, #run{
+    font-weight: 500;
+    padding: 2px;
+}
+
+.box > p:nth-child(2){
+    display: block;
+    margin: 5% 0 3% 5%;
+    font-size: 2rem;
+    color: white;    
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-family: var(--main-font);
+}
+
+.box > p:nth-child(3){
+    margin: 0 0 3% 5%;
+    font-size: 1.2rem;
+    color: var(--secondary-color);    
+    text-align: left;
+    font-family: var(--secondary-font);
+}
+
+.box > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;    
+    text-decoration: none;
+    transition: .2s;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-45%);
+    font-family: var(--light-font);
+}
+
+.box > a:hover{
+    color: var(--primary-color);
+}
+
+.about-the-classes{
+    display: flex;
+    margin: auto;
+    width: 75vw;
+    height: 30vh;
+    margin-top: 5%;
+    padding: 10px;        
+}
+
+.about-the-classes > div:first-child{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.about-the-classes > div:nth-child(2){
+    height: auto;
+    text-align: left;
+    width: 60%;
+}
+
+#classes-icon{
+   height: 100%;
+   width: 60%;   
+   aspect-ratio:1/1 contain;   
+}
+
+.about-the-classes > div > p:first-child{
+    font-size: 2rem;
+    font-family: var(--main-font);
+    color: white;
+    margin: 20px 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.about-the-classes > div > p:nth-child(2){
+    font-size: 1.4rem;
+    font-family: var(--secondary-font);
+    color: var(--secondary-color);
+    margin: 0 5px;    
+}
+
+#book-class-btn{
+    width: 30%;
+    min-height: 5.5vh;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: var(--light-font);
+    transition: .2s;
+    font-size: 1.8rem;
+    padding: 5px;
+    margin: 2% 0;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#book-class-btn:hover{
+    transform: scale(98%);
+}
+
+#membership{
+    height: 100%;
+    width: 100vw;
+}
+
+.membership-heading{
+    color: white;
+    font-size: 4rem;
+    font-family: var(--main-font);
+    text-align: center;
+}
+
+#membership-description{
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-family: var(--secondary-font);
+    text-align: center;
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+.plan-box{
+    display: flex;
+    margin: auto;
+    width: 75vw;
+    height: 70vh;
+    margin-top: 5%;    
+    grid-gap: 30px;
+    margin-bottom: 5%;
+}
+
+.plans{position: relative;}
+
+.plans > p:first-child{
+    text-align: center;   
+    color: white;
+    font-size: 1.5rem;
+    font-family: var(--main-font);
+    font-weight: 500;
+    margin: 2% 0;
+}
+
+.price{
+    text-align: left;
+    margin-left: 5%;
+    color: white;
+    font-family: var(--main-font);
+    font-size: 3rem;
+    font-weight: 600;
+    width: 80%;
+    position: relative;
+    padding: 5px;
+    display: flex;
+}
+
+.price::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+}
+
+.plans ul li{
+    list-style: none;
+    color: white;
+    font-size: 2rem;
+    font-family: var(-light-font);
+    margin: 5%  0 0 5%;
+}
+
+.plans ul li span{
+    color: var(--primary-color);
+}
+
+.plans > button{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5%;
+    width: 50%;
+    min-height: 5vh;
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+    font-family: var(--light-font);
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.plans > button:hover{
+    background: var(--primary-color);
+    color: white;
+    border: none;    
+}
+
+#about-us{
+    display: flex;   
+    height: auto;
+    width: 100vw;
+    position: relative;
+    background: var(--box-bg);
+}
+
+#about-us > div:first-child{
+    width: 40%;
+    height: 100%;    
+}
+
+#about-us > div:first-child > p:first-child{
+    font-size: 3rem;
+    color: white;
+    font-family: var(--main-font);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 5% 0 2% 10%;
+    font-weight: 600;
+}
+
+#about-us > div:first-child > p:nth-child(2){
+    color: var(--secondary-color);
+    font-family: var(--light-font);    
+    margin: 2% 0 2% 10%;
+    font-size: 1.8rem;
+}
+
+.social-media-links{
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.social-media-links ul li{
+    padding: 10px;
+    margin: 5% 0 10% 0%;
+}
+
+.social-media-links ul li a{
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 50%;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    transition: .2s;
+    font-size: 2rem;
+    padding: 15px 15px 5px 15px;    
+}
+
+.social-media-links a:hover{
+    color: white;
+    background: var(--primary-color);
+    border: none;
+}
+
+#about-us > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+.footer{
+    margin: 2% 5%;
+}
+
+.footer p{
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-family: var(--main-font);
+    margin: 20px 0;
+    font-size: 3rem;
+}
+
+.footer ul li {
+    list-style: none;
+    margin: 20px 0;
+    font-family: var(--light-font);
+}
+
+.footer ul li a{
+    color: white;
+    font-size: 1.8rem;
+    padding: 10px 0;    
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.footer ul li a:hover{color: var(--primary-color);text-decoration: underline;}
+
+#copyright-notice{
+    color: white;
+    font-size: 1.5rem;
+    font-family: var(--light-font);        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    min-height: 5vh;
+    width: 100vw;
+    padding: 2vh 0;    
+    background: var(--box-bg);
+}    
+
+@media screen and (max-width: 2000px) {    
+    #book-class-btn,
+    #header-text-content > p:nth-child(2),
+    #about-us > div:first-child > p:nth-child(2),
+    .footer ul li a,
+    .box > p:nth-child(2),
+    .plans ul li,
+    .about-the-classes > div > p:nth-child(2) {
+        font-size: 1.5rem;
+    }
+    
+    .box > p:nth-child(3) {
+        font-size: 1rem;
+        margin: 0 0 2.5% 5%;
+    }
+            
+    #header-text-content > p:first-child {
+        font-size: 6rem;
+    }   
+}
+
+@media screen and (max-width: 1790px) {
+    #book-class-btn,
+    #header-text-content > p:nth-child(2),
+    #about-us > div:first-child > p:nth-child(2),
+    .footer ul li a,
+    .box > p:nth-child(2),
+    .plans ul li,
+    #membership-description,
+    .about-the-classes > div > p:nth-child(2),
+    #header-text-content > button,
+    #header-text-content > button a {
+        font-size: 1.2rem;
+    }
+    
+    #header-text-content > p:first-child {
+        font-size: 5rem;
+    }   
+    
+    .plan-box {
+        height: 60vh;
+    }
+    
+    .price,
+    #about-us > div:first-child > p:first-child,
+    .footer p,
+    .services-heading,
+    .membership-heading {
+        font-size: 2rem;
+    }
+    
+    .about-the-classes > div > p:first-child {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    #book-class-btn,
+    #header-text-content > p:nth-child(2),
+    #about-us > div:first-child > p:nth-child(2),
+    .footer ul li a,
+    .box > p:nth-child(2),
+    .plans ul li,
+    #membership-description,
+    .about-the-classes > div > p:nth-child(2) {
+        font-size: 1rem;
+    }
+    
+    .services-box-area {
+        height: 50vh;
+        width: 90vw; 
+    }
+    
+    #services {
+        height: 130vh;
+    }
+    
+    .plans > button ,
+    #copyright-notice{
+        font-size: 1.2rem;
+    }
+    
+    .plan-box {
+        height: 70vh;
+    }
+    
+    .price,
+    #about-us > div:first-child > p:first-child,
+    .footer p ,
+    .social-media-links ul li a{
+        font-size: 1.8rem;
+    }
+    
+    .box > p:nth-child(2) {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    nav {
+        font-size: 1.8rem;
+    }
+    
+    .bg {
+        top: 8%;
+    }
+    
+    #header-text-content > p:first-child {
+        font-size: 3.5rem;
+    }   
+    
+    #header-text-content > button {
+        width: 50%;
+    }
+    
+    #book-class-btn,
+    #header-text-content > p:nth-child(2),
+    #about-us > div:first-child > p:nth-child(2),
+    .box > p:nth-child(2),
+    .plans ul li,
+    #membership-description,
+    .about-the-classes > div > p:nth-child(2), 
+    .plans ul li span {
+        font-size: 0.8rem;
+    }
+    
+    .box > p:nth-child(2),
+    .membership-description,
+    .box > span {
+        font-size: 1.3rem;
+    }
+    
+    .box > p:nth-child(3) {
+        font-size: 0.8rem;
+        margin: 0 0 2% 5%;
+    }
+    
+    .price,
+    #about-us > div:first-child > p:first-child,
+    .footer p,
+    .membership-heading,
+    .services-heading {
+        font-size: 1.8rem;
+    }
+    
+    .about-the-classes > div > p:first-child ,
+    .social-media-links ul li a{
+        font-size: 1.5rem;
+    }
+    
+    nav ul li,
+    .footer ul li a,
+    .box > a,
+    #copyright-notice,
+    .plans > button {
+        font-size: 1rem;
+    }
+        
+    .services-box-area,
+    .plan-box {       
+        width: 90vw;        
+    }
+    
+    .about-the-classes{height: auto;}
+}
+
+@media screen and (max-width:1024px){
+    nav {
+        font-size: 1.3rem;
+    }
+    
+    .about-the-classes > div > p:first-child ,
+    .social-media-links ul li a{
+        font-size: 1.2rem;
+    }
+    
+    .price,
+    #about-us > div:first-child > p:first-child,
+    .footer p,
+    .membership-heading,
+    .services-heading {
+        font-size: 1.3rem;
+    }
+    
+    .box > p:nth-child(3) {
+        font-size: 0.55rem;
+        margin: 0 0 .5% 5%;
+    }
+    
+    .box > p:nth-child(2),
+    .membership-description {
+        font-size: 1.2rem;
+    }
+    
+    #book-class-btn,
+    #header-text-content > p:nth-child(2),
+    #about-us > div:first-child > p:nth-child(2),    
+    .plans ul li,
+    #membership-description,
+    .about-the-classes > div > p:nth-child(2), 
+    .plans ul li span {
+        font-size: 0.75rem;
+    }
+    
+    #header-text-content > button {
+        width: 30%;
+    }
+    
+    #header-text-content > p:first-child {
+        font-size: 4rem;
+    }   
+    
+    nav ul li,
+    .footer ul li a,
+    .box > a,
+    #copyright-notice,
+    .plans > button {
+        font-size: .85rem;
+    }
+    
+    .about-the-classes > div > p:first-child{margin: 10px 5px;}
+    
+    .plans > button{width: 30%;}
+    
+    #book-class-btn{
+        min-height: 8vh;
+    }
+    
+    .services-box-area{height: 55vh;}
+    
+    .box > span{margin: 2% 0 3% 5%;}
+    
+    .box > p:first-child{letter-spacing: 0px;}
+    
+    .plan-box{height: 80vh;}
+    
+    .plans > button{
+        height: 6.5vh;
+    }
+    
+    #membership{height: auto;}
+   
+}
+
+@media screen and (max-width:850px){
+    #header-text-content > p:first-child {
+        font-size: 3rem;
+    }   
+    
+    nav {
+        font-size: 1rem;
+    }
+    
+    #header-text-content > p:nth-child(2),nav ul li a{font-size: .7rem;}
+    
+    #header-text-content > button a, 
+    .box > span{
+        font-size: .9rem;
+    }
+    
+    .box > p:nth-child(3){
+        font-size: .5rem;
+    }
+    
+    .box > p:nth-child(2){
+        font-size: .8rem;
+    }
+    
+    .services-box-area{height: 50vh;}
+    
+    #span-icon, #run{
+        height: 2vh;
+    }
+}
+
+@media screen and (max-width:700px){
+    #header-text-content > p:first-child {
+        font-size: 2rem;
+    }   
+    
+    nav {
+        font-size: .8rem;
+    }
+    
+    #header-text-content > p:nth-child(2),nav ul li a{font-size: .5rem;}
+    
+    #header-text-content > button a, 
+    .box > span{
+        font-size: .8rem;
+    }
+    
+    #header-text-content > button{width: 50%;}
+    
+    .box > p:nth-child(3){
+        font-size: .1rem;
+    }
+    
+    .box > p:nth-child(2), 
+    .plans > button{
+        font-size: .8rem;
+    }
+    
+    .box > a{font-size: .4rem;}
+    
+    .services-box-area{height: 50vh;}
+    
+    #span-icon, #run{
+        height: 2vh;
+    }
+    
+    .box > span{
+        margin: 5px 0 2px 5%;        
+    }   
+    
+    .box{padding: 15px 5px 5px 0px;}
+    
+    .about-the-classes > div > p:nth-child(2){
+        font-size: .35;        
+    }
+    
+    #services{
+        height: auto;
+    }
+    
+    .about-the-classes{width: 80vw;}
+    
+    #book-class-btn,
+    #header-text-content > p:nth-child(2),
+    #about-us > div:first-child > p:nth-child(2),    
+    .plans ul li,   
+    .plans ul li span {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width:550px){
+    nav ul{display: none;}
+    
+    #menu{display: flex;}
+    
+    #brand-name{margin-left: 5%;}
+    
+    nav{justify-content: space-between;}
+    
+    header,
+    .services-box-area,
+    .about-the-classes,
+    .plan-box, 
+    #about-us {
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+    }
+    
+    #header-bg-parent-div{        
+        height: 70%;
+        width: 90%;
+        margin-top: 10%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .bg{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        left: 0%;
+        right: 0%;
+    }
+    
+    #header-text-content{
+        width: 95%;
+        height: 50%;
+        margin-left: 2%;
+    }
+    
+    #header-text-content > p:first-child{
+        font-size: 4.5rem;
+    }
+    
+    #header-text-content > p:nth-child(2){
+        font-size: 1rem;
+    }
+    
+    #header-text-content > button{        
+        width: 40%;
+        height: 5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 3px;
+    }
+    
+    #header-text-content > button a {
+        width: 100%;
+        height: 100%;
+        font-size: 1.2rem;
+        padding: 10px 0;
+    }
+    
+    .services-heading,
+    .membership-heading{
+        font-size: 2rem;
+    }
+    
+    .services-box-area,
+    .plan-box{width: 70%;}
+    
+    .box{
+        width: 100%;
+        height: 30vh;
+        padding: 20px 0 5px 0;
+    }
+    
+    .box > span{font-size: 2rem;}
+    
+    .box > p:nth-child(2){
+        font-size: 1.8rem;
+    }
+    
+    .box > p:nth-child(3){font-size: .9rem;}
+    
+    .box a{font-size: 1rem;}
+    
+    .about-the-classes{width: 90%;}
+    
+    .about-the-classes > div:first-child{margin: auto;}
+    
+    .about-the-classes > div:nth-child(2){
+        width: 100%;
+        text-align: center;
+    }
+    
+    .about-the-classes > div:nth-child(2) > p:first-child{font-size: 1.5rem;}
+    
+    .about-the-classes > div:nth-child(2) > #book-class-btn{
+        width: 40%;
+        min-height: 4vh;
+        padding: 10px 0;
+        font-size: 1rem;
+        letter-spacing: 0px;        
+    }     
+    
+    .plan-box{width: 70%;} 
+    
+    .plan-box > div{
+        width: 100%;
+        height: 50vh;
+    }
+    
+    .plan-box > div > button {
+        height: 4vh;
+    }
+    
+    #about-us > div,
+    #about-us > div:first-child, 
+    #about-us > div:nth-child(2),
+    .social-media-links {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .social-media-links{margin: 10px 0;}
+    
+    nav{font-size: 1.2rem;}
+}
+
+@media screen and (max-width:480px){
+    #header-text-content > p:first-child{
+        font-size: 4rem;
+    }
+    
+    #header-text-content > p:nth-child(2){
+        font-size: .75rem;
+    }
+    
+    #header-text-content > button{        
+        width: 40%;
+        height: 5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 5px;
+    }  
+    
+    .box > span{font-size: 1.5rem;}
+    
+    .box > p:nth-child(2),
+    .footer > p {
+        font-size: 1.2rem;
+    }
+    
+    .box > p:nth-child(3){font-size: .75rem;}
+    
+    .box a,
+    #membership-description{font-size: .8rem;}      
+    
+    .services-heading,
+    .membership-heading{
+        font-size: 1.8rem;
+    }           
+}
